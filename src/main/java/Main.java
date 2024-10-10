@@ -1,23 +1,27 @@
 import Model.Doctor;
 import Model.DoctorServiceImpl;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import java.util.List;
 
 public class Main {
+    private static final Logger logger = LogManager.getLogger(Main.class);
     public static void main(String[] args) {
         DoctorServiceImpl doctorService = new DoctorServiceImpl();
 
+        // Agregar un nuevo doctor
         Doctor newDoctor = new Doctor(0, "John", "Doe", "Cardiology", "123-456-7890", "john.doe@example.com", 1);
         doctorService.addDoctor(newDoctor);
-        System.out.println("Doctor agregado: " + newDoctor.getFirstName() + " " + newDoctor.getLastName());
+        logger.info("Doctor added: {} {}", newDoctor.getFirstName(), newDoctor.getLastName());
 
         // Obtener y mostrar todos los doctores
-        System.out.println("\nLista de doctores:");
+        logger.info("Doctor list:");
         List<Doctor> doctors = doctorService.getAllDoctors();
         for (Doctor doctor : doctors) {
-            System.out.println("ID: " + doctor.getDoctorId() + ", Name: " + doctor.getFirstName() + " " + doctor.getLastName() +
-                    ", Specialization: " + doctor.getSpecialization() + ", Phone: " + doctor.getPhone() +
-                    ", Email: " + doctor.getEmail() + ", Department ID: " + doctor.getDepartmentId());
+            logger.info("ID: {}, Name: {} {}, Specialization: {}, Phone: {}, Email: {}, Department ID: {}",
+                    doctor.getDoctorId(), doctor.getFirstName(), doctor.getLastName(),
+                    doctor.getSpecialization(), doctor.getPhone(), doctor.getEmail(), doctor.getDepartmentId());
         }
 
         // Actualizar un doctor
@@ -25,22 +29,21 @@ public class Main {
             Doctor firstDoctor = doctors.get(0);
             firstDoctor.setPhone("987-654-3210");
             doctorService.updateDoctor(firstDoctor);
-            System.out.println("\nDoctor actualizado: " + firstDoctor.getFirstName() + " " + firstDoctor.getLastName() +
-                    ", nuevo teléfono: " + firstDoctor.getPhone());
+            logger.info("Doctor updated: {} {}, new phone: {}", firstDoctor.getFirstName(), firstDoctor.getLastName(), firstDoctor.getPhone());
         }
 
-        // Eliminar un doctor (por ejemplo, el primer doctor en la lista)
+        // Eliminar un doctor
         if (!doctors.isEmpty()) {
             int doctorIdToDelete = doctors.get(0).getDoctorId();
             doctorService.deleteDoctor(doctorIdToDelete);
-            System.out.println("\nDoctor eliminado con ID: " + doctorIdToDelete);
+            logger.info("Doctor deleted with ID: {}", doctorIdToDelete);
         }
 
         // Muestra la lista actualizada de doctores
-        System.out.println("\nLista de doctores después de la eliminación:");
+        logger.info("Doctor list after deletion:");
         doctors = doctorService.getAllDoctors();
         for (Doctor doctor : doctors) {
-            System.out.println("ID: " + doctor.getDoctorId() + ", Name: " + doctor.getFirstName() + " " + doctor.getLastName());
+            logger.info("ID: {}, Name: {} {}", doctor.getDoctorId(), doctor.getFirstName(), doctor.getLastName());
         }
     }
 }
