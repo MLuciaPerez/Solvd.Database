@@ -1,6 +1,8 @@
-package Model;
-import Model.AbstractDAO;
-import Model.Doctor;
+package Model.DAO;
+
+import Model.DAO.AbstractDAO;
+import Model.classesHierarchy.Department;
+import Model.classesHierarchy.Doctor;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -55,19 +57,21 @@ public class DoctorDAO extends AbstractDAO<Doctor, Integer> {
         preparedStatement.setString(4, entity.getPhone());
         preparedStatement.setString(5, entity.getEmail());
         preparedStatement.setInt(6, entity.getDepartmentId());
-        preparedStatement.setInt(7, entity.getDoctorId());
+        preparedStatement.setInt(7, entity.getId());
     }
 
     @Override
     protected Doctor mapResultSetToEntity(ResultSet resultSet) throws SQLException {
-        return new Doctor(
-                resultSet.getInt("doctor_id"),
-                resultSet.getString("first_name"),
-                resultSet.getString("last_name"),
-                resultSet.getString("specialization"),
-                resultSet.getString("phone"),
-                resultSet.getString("email"),
-                resultSet.getInt("department_id")
-        );
+        int doctorId = resultSet.getInt("doctor_id");
+        String firstName = resultSet.getString("first_name");
+        String lastName = resultSet.getString("last_name");
+        String phone = resultSet.getString("phone");
+        String email = resultSet.getString("email");
+        String specialization = resultSet.getString("specialization");
+
+        int departmentId = resultSet.getInt("department_id");
+        Department department = new Department(departmentId, "Department Name");
+
+        return new Doctor(doctorId, firstName, lastName, phone, email, specialization, department.getDepartmentId());
     }
 }

@@ -1,4 +1,4 @@
-package Model;
+package Model.DAO;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -13,7 +13,7 @@ public class ConnectionPool {
     private static final int MAX_POOL_SIZE = 10;
     private static final String URL = "jdbc:mysql://127.0.0.1:3306/clinicdb";
     private static final String USER = "root";
-    private static final String PASSWORD = "12342024";
+    private static final String PASSWORD = "feli2024atemporal";
 
     private ConnectionPool() {
         // Para crear las conexiones y agregarlas al pool
