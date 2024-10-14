@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+
+    <xsd:element name="hospital">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="departments">
+                    <xsd:complexType>
+                        <xsd:sequence>
+                            <xsd:element name="department" minOccurs="1" maxOccurs="unbounded">
+                                <xsd:complexType>
+                                    <xsd:sequence>
+                                        <xsd:element name="id" type="xsd:int"/>
+                                        <xsd:element name="name" type="xsd:string"/>
+                                    </xsd:sequence>
+                                </xsd:complexType>
+                            </xsd:element>
+                        </xsd:sequence>
+                    </xsd:complexType>
+                </xsd:element>
+
+                <xsd:element name="nurses">
+                    <xsd:complexType>
+                        <xsd:sequence>
+                            <xsd:element name="nurse" minOccurs="1" maxOccurs="unbounded">
+                                <xsd:complexType>
+                                    <xsd:sequence>
+                                        <xsd:element name="id" type="xsd:int"/>
+                                        <xsd:element name="firstName" type="xsd:string"/>
+                                        <xsd:element name="lastName" type="xsd:string"/>
+                                        <xsd:element name="shift" type="xsd:string"/>
+                                        <xsd:element name="departmentId" type="xsd:int"/>
+                                    </xsd:sequence>
+                                </xsd:complexType>
+                            </xsd:element>
+                        </xsd:sequence>
+                    </xsd:complexType>
+                </xsd:element>
+
+                <xsd:element name="doctors">
+                    <xsd:complexType>
+                        <xsd:sequence>
+                            <xsd:element name="doctor" minOccurs="1" maxOccurs="unbounded">
+                                <xsd:complexType>
+                                    <xsd:sequence>
+                                        <xsd:element name="id" type="xsd:int"/>
+                                        <xsd:element name="firstName" type="xsd:string"/>
+                                        <xsd:element name="lastName" type="xsd:string"/>
+                                        <xsd:element name="specialty" type="xsd:string"/>
+                                        <xsd:element name="departmentId" type="xsd:int"/>
+                                    </xsd:sequence>
+                                </xsd:complexType>
+                            </xsd:element>
+                        </xsd:sequence>
+                    </xsd:complexType>
+                </xsd:element>
+
+                <xsd:element name="patients">
+                    <xsd:complexType>
+                        <xsd:sequence>
+                            <xsd:element name="patient" minOccurs="1" maxOccurs="unbounded">
+                                <xsd:complexType>
+                                    <xsd:sequence>
+                                        <xsd:element name="id" type="xsd:int"/>
+                                        <xsd:element name="firstName" type="xsd:string"/>
+                                        <xsd:element name="lastName" type="xsd:string"/>
+                                        <xsd:element name="birthDate" type="xsd:date"/>
+                                        <xsd:element name="address" type="xsd:string"/>
+                                    </xsd:sequence>
+                                </xsd:complexType>
+                            </xsd:element>
+                        </xsd:sequence>
+                    </xsd:complexType>
+                </xsd:element>
+
+                <xsd:element name="rooms">
+                    <xsd:complexType>
+                        <xsd:sequence>
+                            <xsd:element name="room" minOccurs="1" maxOccurs="unbounded">
+                                <xsd:complexType>
+                                    <xsd:sequence>
+                                        <xsd:element name="roomId" type="xsd:int"/>
+                                        <xsd:element name="roomNumber" type="xsd:int"/>
+                                        <xsd:element name="roomType" type="xsd:string"/>
+                                        <xsd:element name="availability" type="xsd:boolean"/>
+                                    </xsd:sequence>
+                                </xsd:complexType>
+                            </xsd:element>
+                        </xsd:sequence>
+                    </xsd:complexType>
+                </xsd:element>
+
+                <xsd:element name="appointments">
+                    <xsd:complexType>
+                        <xsd:sequence>
+                            <xsd:element name="appointment" minOccurs="1" maxOccurs="unbounded">
+                                <xsd:complexType>
+                                    <xsd:sequence>
+                                        <xsd:element name="appointmentId" type="xsd:int"/>
+                                        <xsd:element name="appointmentDate" type="xsd:date"/>
+                                        <xsd:element name="appointmentTime" type="xsd:string"/>
+                                        <xsd:element name="doctorId" type="xsd:int"/>
+                                        <xsd:element name="patientId" type="xsd:int"/>
+                                        <xsd:element name="roomId" type="xsd:int"/>
+                                    </xsd:sequence>
+                                </xsd:complexType>
+                            </xsd:element>
+                        </xsd:sequence>
+                    </xsd:complexType>
+                </xsd:element>
+
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+
+</xsd:schema>
