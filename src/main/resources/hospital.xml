@@ -2,60 +2,78 @@
 <hospital xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="hospital.xsd">
     <departments>
         <department>
-            <id>1</id>
-            <name>Cardiology</name>
+            <departmentId>1</departmentId>
+            <departmentName>Cardiology</departmentName>
         </department>
         <department>
-            <id>2</id>
-            <name>Pediatrics</name>
+            <departmentId>2</departmentId>
+            <departmentName>Pediatrics</departmentName>
         </department>
     </departments>
-    <nurses>
-        <nurse>
-            <id>1</id>
-            <firstName>Alice</firstName>
-            <lastName>Smith</lastName>
-            <shift>Day</shift>
-            <departmentId>1</departmentId>
-        </nurse>
-        <nurse>
-            <id>2</id>
-            <firstName>Bob</firstName>
-            <lastName>Johnson</lastName>
-            <shift>Night</shift>
-            <departmentId>2</departmentId>
-        </nurse>
-    </nurses>
     <doctors>
         <doctor>
             <id>1</id>
-            <firstName>Dr. Emily</firstName>
-            <lastName>Brown</lastName>
-            <specialty>Cardiology</specialty>
+            <firstName>John</firstName>
+            <lastName>Doe</lastName>
+            <phone>123-456-7890</phone>
+            <email>john.doe@example.com</email>
+            <specialization>Cardiologist</specialization>
             <departmentId>1</departmentId>
         </doctor>
         <doctor>
             <id>2</id>
-            <firstName>Dr. Mark</firstName>
-            <lastName>Wilson</lastName>
-            <specialty>Pediatrics</specialty>
+            <firstName>Jane</firstName>
+            <lastName>Smith</lastName>
+            <phone>098-765-4321</phone>
+            <email>jane.smith@example.com</email>
+            <specialization>Pediatrician</specialization>
             <departmentId>2</departmentId>
         </doctor>
     </doctors>
+    <nurses>
+        <nurse>
+            <id>3</id>
+            <firstName>Emily</firstName>
+            <lastName>Johnson</lastName>
+            <phone>321-654-9870</phone>
+            <email>emily.johnson@example.com</email>
+            <shift>Night</shift>
+            <department>
+                <departmentId>1</departmentId>
+                <departmentName>Cardiology</departmentName>
+            </department>
+        </nurse>
+        <nurse>
+            <id>4</id>
+            <firstName>Michael</firstName>
+            <lastName>Brown</lastName>
+            <phone>789-012-3456</phone>
+            <email>michael.brown@example.com</email>
+            <shift>Day</shift>
+            <department>
+                <departmentId>2</departmentId>
+                <departmentName>Pediatrics</departmentName>
+            </department>
+        </nurse>
+    </nurses>
     <patients>
         <patient>
-            <id>1</id>
-            <firstName>John</firstName>
-            <lastName>Doe</lastName>
-            <birthDate>1990-01-01</birthDate>
-            <address>123 Main St</address>
+            <id>5</id>
+            <firstName>Alice</firstName>
+            <lastName>Williams</lastName>
+            <phone>456-789-1230</phone>
+            <email>alice.williams@example.com</email>
+            <birthDate>2010-05-01</birthDate>
+            <address>123 Main St, Anytown</address>
         </patient>
         <patient>
-            <id>2</id>
-            <firstName>Jane</firstName>
-            <lastName>Doe</lastName>
-            <birthDate>1992-02-02</birthDate>
-            <address>456 Second St</address>
+            <id>6</id>
+            <firstName>David</firstName>
+            <lastName>Jones</lastName>
+            <phone>654-321-0987</phone>
+            <email>david.jones@example.com</email>
+            <birthDate>2015-08-10</birthDate>
+            <address>456 Oak St, Othertown</address>
         </patient>
     </patients>
     <rooms>
@@ -75,19 +93,53 @@
     <appointments>
         <appointment>
             <appointmentId>1</appointmentId>
-            <appointmentDate>2024-10-15</appointmentDate>
+            <date>2024-10-15</date>
             <appointmentTime>10:00</appointmentTime>
-            <doctorId>1</doctorId>
-            <patientId>1</patientId>
-            <roomId>101</roomId>
+            <doctor>
+                <id>1</id>
+                <firstName>John</firstName>
+                <lastName>Doe</lastName>
+                <specialization>Cardiologist</specialization>
+                <departmentId>1</departmentId>
+            </doctor>
+            <patient>
+                <id>5</id>
+                <firstName>Alice</firstName>
+                <lastName>Williams</lastName>
+                <birthDate>2010-05-01</birthDate>
+                <address>123 Main St, Anytown</address>
+            </patient>
+            <room>
+                <roomId>101</roomId>
+                <roomNumber>101</roomNumber>
+                <roomType>Private</roomType>
+                <availability>true</availability>
+            </room>
         </appointment>
         <appointment>
             <appointmentId>2</appointmentId>
-            <appointmentDate>2024-10-16</appointmentDate>
+            <date>2024-10-16</date>
             <appointmentTime>11:00</appointmentTime>
-            <doctorId>2</doctorId>
-            <patientId>2</patientId>
-            <roomId>102</roomId>
+            <doctor>
+                <id>2</id>
+                <firstName>Jane</firstName>
+                <lastName>Smith</lastName>
+                <specialization>Pediatrician</specialization>
+                <departmentId>2</departmentId>
+            </doctor>
+            <patient>
+                <id>6</id>
+                <firstName>David</firstName>
+                <lastName>Jones</lastName>
+                <birthDate>2015-08-10</birthDate>
+                <address>456 Oak St, Othertown</address>
+            </patient>
+            <room>
+                <roomId>102</roomId>
+                <roomNumber>102</roomNumber>
+                <roomType>Shared</roomType>
+                <availability>false</availability>
+            </room>
         </appointment>
     </appointments>
 </hospital>
