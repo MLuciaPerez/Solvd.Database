@@ -1,5 +1,12 @@
 package Model.classesHierarchy;
 
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlAccessType;
+
+@XmlRootElement(name = "room")
+@XmlAccessorType(XmlAccessType.FIELD)
 public class Room {
     private int roomId;
     private String roomNumber;
@@ -7,6 +14,8 @@ public class Room {
     private boolean availability;
 
     // Constructor
+    public Room() {}
+
     public Room(int roomId, String roomNumber, String roomType, boolean availability) {
         this.roomId = roomId;
         this.roomNumber = roomNumber;
@@ -15,18 +24,8 @@ public class Room {
     }
 
     // Getters
-    public int getRoomId() {
-        return roomId;
-    }
 
-    public String getRoomNumber() {
-        return roomNumber;
-    }
-
-    public String getRoomType() {
-        return roomType;
-    }
-
+    @XmlElement(name = "isAvailable")
     public boolean isAvailable() {
         return availability;
     }
@@ -46,5 +45,15 @@ public class Room {
 
     public void setAvailability(boolean availability) {
         this.availability = availability;
+    }
+
+    @Override
+    public String toString() {
+        return "Room{" +
+                "roomId=" + roomId +
+                ", roomNumber='" + roomNumber + '\'' +
+                ", roomType='" + roomType + '\'' +
+                ", availability=" + availability +
+                '}';
     }
 }

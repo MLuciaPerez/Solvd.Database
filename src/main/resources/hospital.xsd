@@ -1,116 +1,152 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
 
-    <xsd:element name="hospital">
-        <xsd:complexType>
-            <xsd:sequence>
-                <xsd:element name="departments">
-                    <xsd:complexType>
-                        <xsd:sequence>
-                            <xsd:element name="department" minOccurs="1" maxOccurs="unbounded">
-                                <xsd:complexType>
-                                    <xsd:sequence>
-                                        <xsd:element name="id" type="xsd:int"/>
-                                        <xsd:element name="name" type="xsd:string"/>
-                                    </xsd:sequence>
-                                </xsd:complexType>
-                            </xsd:element>
-                        </xsd:sequence>
-                    </xsd:complexType>
-                </xsd:element>
+    <xs:element name="hospital">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="departments" minOccurs="0" maxOccurs="1">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="department" maxOccurs="unbounded">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element name="departmentId" type="xs:int"/>
+                                        <xs:element name="departmentName" type="xs:string"/>
+                                    </xs:sequence>
+                                </xs:complexType>
+                            </xs:element>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="doctors" minOccurs="0" maxOccurs="1">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="doctor" maxOccurs="unbounded">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element name="id" type="xs:int"/>
+                                        <xs:element name="firstName" type="xs:string"/>
+                                        <xs:element name="lastName" type="xs:string"/>
+                                        <xs:element name="phone" type="xs:string"/>
+                                        <xs:element name="email" type="xs:string"/>
+                                        <xs:element name="specialization" type="xs:string"/>
+                                        <xs:element name="departmentId" type="xs:int"/>
+                                    </xs:sequence>
+                                </xs:complexType>
+                            </xs:element>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="nurses" minOccurs="0" maxOccurs="1">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="nurse" maxOccurs="unbounded">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element name="id" type="xs:int"/>
+                                        <xs:element name="firstName" type="xs:string"/>
+                                        <xs:element name="lastName" type="xs:string"/>
+                                        <xs:element name="phone" type="xs:string"/>
+                                        <xs:element name="email" type="xs:string"/>
+                                        <xs:element name="shift" type="xs:string"/>
+                                        <xs:element name="department">
+                                            <xs:complexType>
+                                                <xs:sequence>
+                                                    <xs:element name="departmentId" type="xs:int"/>
+                                                    <xs:element name="departmentName" type="xs:string"/>
+                                                </xs:sequence>
+                                            </xs:complexType>
+                                        </xs:element>
+                                    </xs:sequence>
+                                </xs:complexType>
+                            </xs:element>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="patients" minOccurs="0" maxOccurs="1">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="patient" maxOccurs="unbounded">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element name="id" type="xs:int"/>
+                                        <xs:element name="firstName" type="xs:string"/>
+                                        <xs:element name="lastName" type="xs:string"/>
+                                        <xs:element name="phone" type="xs:string"/>
+                                        <xs:element name="email" type="xs:string"/>
+                                        <xs:element name="birthDate" type="xs:string"/>
+                                        <xs:element name="address" type="xs:string"/>
+                                    </xs:sequence>
+                                </xs:complexType>
+                            </xs:element>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="rooms" minOccurs="0" maxOccurs="1">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="room" maxOccurs="unbounded">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element name="roomId" type="xs:int"/>
+                                        <xs:element name="roomNumber" type="xs:string"/>
+                                        <xs:element name="roomType" type="xs:string"/>
+                                        <xs:element name="availability" type="xs:boolean"/>
+                                    </xs:sequence>
+                                </xs:complexType>
+                            </xs:element>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="appointments" minOccurs="0" maxOccurs="1">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="appointment" maxOccurs="unbounded">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element name="appointmentId" type="xs:int"/>
+                                        <xs:element name="date" type="xs:string"/>
+                                        <xs:element name="appointmentTime" type="xs:string"/>
+                                        <xs:element name="doctor">
+                                            <xs:complexType>
+                                                <xs:sequence>
+                                                    <xs:element name="id" type="xs:int"/>
+                                                    <xs:element name="firstName" type="xs:string"/>
+                                                    <xs:element name="lastName" type="xs:string"/>
+                                                    <xs:element name="specialization" type="xs:string"/>
+                                                    <xs:element name="departmentId" type="xs:int"/>
+                                                </xs:sequence>
+                                            </xs:complexType>
+                                        </xs:element>
+                                        <xs:element name="patient">
+                                            <xs:complexType>
+                                                <xs:sequence>
+                                                    <xs:element name="id" type="xs:int"/>
+                                                    <xs:element name="firstName" type="xs:string"/>
+                                                    <xs:element name="lastName" type="xs:string"/>
+                                                    <xs:element name="birthDate" type="xs:string"/>
+                                                    <xs:element name="address" type="xs:string"/>
+                                                </xs:sequence>
+                                            </xs:complexType>
+                                        </xs:element>
+                                        <xs:element name="room">
+                                            <xs:complexType>
+                                                <xs:sequence>
+                                                    <xs:element name="roomId" type="xs:int"/>
+                                                    <xs:element name="roomNumber" type="xs:string"/>
+                                                    <xs:element name="roomType" type="xs:string"/>
+                                                    <xs:element name="availability" type="xs:boolean"/>
+                                                </xs:sequence>
+                                            </xs:complexType>
+                                        </xs:element>
+                                    </xs:sequence>
+                                </xs:complexType>
+                            </xs:element>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
 
-                <xsd:element name="nurses">
-                    <xsd:complexType>
-                        <xsd:sequence>
-                            <xsd:element name="nurse" minOccurs="1" maxOccurs="unbounded">
-                                <xsd:complexType>
-                                    <xsd:sequence>
-                                        <xsd:element name="id" type="xsd:int"/>
-                                        <xsd:element name="firstName" type="xsd:string"/>
-                                        <xsd:element name="lastName" type="xsd:string"/>
-                                        <xsd:element name="shift" type="xsd:string"/>
-                                        <xsd:element name="departmentId" type="xsd:int"/>
-                                    </xsd:sequence>
-                                </xsd:complexType>
-                            </xsd:element>
-                        </xsd:sequence>
-                    </xsd:complexType>
-                </xsd:element>
-
-                <xsd:element name="doctors">
-                    <xsd:complexType>
-                        <xsd:sequence>
-                            <xsd:element name="doctor" minOccurs="1" maxOccurs="unbounded">
-                                <xsd:complexType>
-                                    <xsd:sequence>
-                                        <xsd:element name="id" type="xsd:int"/>
-                                        <xsd:element name="firstName" type="xsd:string"/>
-                                        <xsd:element name="lastName" type="xsd:string"/>
-                                        <xsd:element name="specialty" type="xsd:string"/>
-                                        <xsd:element name="departmentId" type="xsd:int"/>
-                                    </xsd:sequence>
-                                </xsd:complexType>
-                            </xsd:element>
-                        </xsd:sequence>
-                    </xsd:complexType>
-                </xsd:element>
-
-                <xsd:element name="patients">
-                    <xsd:complexType>
-                        <xsd:sequence>
-                            <xsd:element name="patient" minOccurs="1" maxOccurs="unbounded">
-                                <xsd:complexType>
-                                    <xsd:sequence>
-                                        <xsd:element name="id" type="xsd:int"/>
-                                        <xsd:element name="firstName" type="xsd:string"/>
-                                        <xsd:element name="lastName" type="xsd:string"/>
-                                        <xsd:element name="birthDate" type="xsd:date"/>
-                                        <xsd:element name="address" type="xsd:string"/>
-                                    </xsd:sequence>
-                                </xsd:complexType>
-                            </xsd:element>
-                        </xsd:sequence>
-                    </xsd:complexType>
-                </xsd:element>
-
-                <xsd:element name="rooms">
-                    <xsd:complexType>
-                        <xsd:sequence>
-                            <xsd:element name="room" minOccurs="1" maxOccurs="unbounded">
-                                <xsd:complexType>
-                                    <xsd:sequence>
-                                        <xsd:element name="roomId" type="xsd:int"/>
-                                        <xsd:element name="roomNumber" type="xsd:int"/>
-                                        <xsd:element name="roomType" type="xsd:string"/>
-                                        <xsd:element name="availability" type="xsd:boolean"/>
-                                    </xsd:sequence>
-                                </xsd:complexType>
-                            </xsd:element>
-                        </xsd:sequence>
-                    </xsd:complexType>
-                </xsd:element>
-
-                <xsd:element name="appointments">
-                    <xsd:complexType>
-                        <xsd:sequence>
-                            <xsd:element name="appointment" minOccurs="1" maxOccurs="unbounded">
-                                <xsd:complexType>
-                                    <xsd:sequence>
-                                        <xsd:element name="appointmentId" type="xsd:int"/>
-                                        <xsd:element name="appointmentDate" type="xsd:date"/>
-                                        <xsd:element name="appointmentTime" type="xsd:string"/>
-                                        <xsd:element name="doctorId" type="xsd:int"/>
-                                        <xsd:element name="patientId" type="xsd:int"/>
-                                        <xsd:element name="roomId" type="xsd:int"/>
-                                    </xsd:sequence>
-                                </xsd:complexType>
-                            </xsd:element>
-                        </xsd:sequence>
-                    </xsd:complexType>
-                </xsd:element>
-
-            </xsd:sequence>
-        </xsd:complexType>
-    </xsd:element>
-
-</xsd:schema>
+</xs:schema>

@@ -16,7 +16,6 @@ public class ConnectionPool {
     private static final String PASSWORD = "feli2024";
 
     private ConnectionPool() {
-        // Para crear las conexiones y agregarlas al pool
         try {
             for (int i = 0; i < MAX_POOL_SIZE; i++) {
                 connectionPool.add(DriverManager.getConnection(URL, USER, PASSWORD));

@@ -11,7 +11,7 @@ import java.sql.SQLException;
 public class DoctorDAO extends AbstractDAO<Doctor, Integer> {
 
     public DoctorDAO() {
-        this.tableName = "Doctor"; // Establece el nombre de la tabla
+        this.tableName = "Doctor";
     }
 
     @Override

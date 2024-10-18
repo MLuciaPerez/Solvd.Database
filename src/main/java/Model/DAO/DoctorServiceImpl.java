@@ -43,7 +43,7 @@ public class DoctorServiceImpl {
             return doctorDAO.findById(doctorId); // Retorna el Doctor directamente, o null si no lo encuentra
         } catch (SQLException e) {
             e.printStackTrace();
-            return null; // Maneja la excepción y devuelve null en caso de error
+            return null;
         }
     }
 
