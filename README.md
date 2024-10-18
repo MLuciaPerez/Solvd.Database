@@ -1,3 +1,8 @@
+JAXB homework:
+Added JAXB annotations to the class hierarchy to support XML serialization and deserialization.
+Included JAXB annotations for handling complex objects, Lists, and Date fields.
+Implemented parsing of XML data into Java objects using JAXB Unmarshaller.
+
 XML homework:
 XMLValidator Class: To validate an XML file against an XSD schema.
 XMLParser Class: To read and parse the content of an XML file.
