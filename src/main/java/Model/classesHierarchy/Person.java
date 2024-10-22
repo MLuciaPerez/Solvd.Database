@@ -1,12 +1,19 @@
 package Model.classesHierarchy;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import javax.xml.bind.annotation.XmlElement;
 
 public abstract class Person {
+    @JsonProperty("id")
     protected int id;
+    @JsonProperty("firstName")
     protected String firstName;
+    @JsonProperty("lastName")
     protected String lastName;
+    @JsonProperty("phone")
     protected String phone;
+    @JsonProperty("email")
     protected String email;
 
     // Constructor

@@ -1,4 +1,6 @@
 package Model.classesHierarchy;
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import javax.xml.bind.annotation.*;
 
 @XmlRootElement(name = "appointment")
@@ -6,11 +8,18 @@ import javax.xml.bind.annotation.*;
 @XmlAccessorType(XmlAccessType.FIELD)
 
 public class Appointment {
+
+    @JsonProperty("appointmentId")
     private int appointmentId;
+    @JsonProperty("date")
     private String date;
+    @JsonProperty("appointmentTime")
     private String appointmentTime;
+    @JsonProperty("doctor")
     private Doctor doctor;
+    @JsonProperty("patient")
     private Patient patient;
+    @JsonProperty("room")
     private Room room;
 
     // Constructor
