@@ -1,10 +1,14 @@
 package Model.classesHierarchy;
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 
 @XmlRootElement(name = "department")
 public class Department {
+    @JsonProperty("departmentId")
     private int departmentId;
+    @JsonProperty("departmentName")
     private String departmentName;
 
     // Constructor

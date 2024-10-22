@@ -1,0 +1,21 @@
+{
+  "hospital" : {
+    "departments" : [ {
+      "departmentId" : 1,
+      "departmentName" : "Cardiology"
+    } ],
+    "doctors" : [ {
+      "id" : 1,
+      "firstName" : "Juan",
+      "lastName" : "Perez",
+      "phone" : "123-456-7890",
+      "email" : "juan@example.com",
+      "specialization" : "Cardiologist",
+      "departmentId" : 1
+    } ],
+    "nurses" : [ ],
+    "patients" : [ ],
+    "rooms" : [ ],
+    "appointments" : null
+  }
+}

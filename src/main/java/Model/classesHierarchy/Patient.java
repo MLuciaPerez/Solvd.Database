@@ -1,10 +1,13 @@
 package Model.classesHierarchy;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 @XmlRootElement(name = "patient")
 public class Patient extends Person {
+    @JsonProperty("birthDate")
     private String birthDate;
+    @JsonProperty("address")
     private String address;
 
     // Constructor
