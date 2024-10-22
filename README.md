@@ -12,16 +12,22 @@ Deserialization of the JSON file back into a HospitalContainer object, followed 
 Included a separate read method to demonstrate reading the JSON directly into a HospitalContainer.
 
 
+
+
 JAXB homework:
 Added JAXB annotations to the class hierarchy to support XML serialization and deserialization.
 Included JAXB annotations for handling complex objects, Lists, and Date fields.
 Implemented parsing of XML data into Java objects using JAXB Unmarshaller.
+
+
 
 XML homework:
 XMLValidator Class: To validate an XML file against an XSD schema.
 XMLParser Class: To read and parse the content of an XML file.
 XML File (hospital.xml): To store structured information about the hospital, such as departments, doctors, nurses, patients, rooms, and appointments.
 XSD File (hospital.xsd):To define the rules and structure that the XML file must follow.
+
+
 
 DAO homework: 
 AbstractDAO Class: To serve as a base class that provides reusable CRUD (Create, Read, Update, Delete) operations for various entities in the clinic system.
