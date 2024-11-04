@@ -146,6 +146,17 @@ public class Main {
             logger.error("Error reading JSON", e);
         }
 
+
+        String xmlFilePath = "src/main/resources/hospital.xml";
+
+        // Parsear usando SAX
+        logger.info("Parsing XML using SAX...");
+        XMLParserSAX.parseXML();
+
+        // Parsear usando StAX
+        logger.info("Parsing XML using StAX...");
+        XMLParserStAX.parseXML(xmlFilePath);
+
     }
     }
 

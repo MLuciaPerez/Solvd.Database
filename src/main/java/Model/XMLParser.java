@@ -7,6 +7,7 @@ import javax.xml.parsers.DocumentBuilderFactory;
 import java.io.File;
 import java.util.logging.Logger;
 
+//DOM PARSER
 public class XMLParser {
     private static final String XML_FILE_PATH = "src/main/resources/hospital.xml";
     private static final Logger LOGGER = Logger.getLogger(XMLParser.class.getName());
